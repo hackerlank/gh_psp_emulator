@@ -1,0 +1,94 @@
+#
+# Copyright (C) 2007 Ludovic Jacomme (ludovic.jacomme@gmail.com)
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+#
+TARGET = pspdragon.exe
+
+
+SDL_CONFIG = sdl-config
+OBJS=  \
+psp_main.o \
+psp_battery.o \
+psp_danzeff.o \
+psp_fmgr.o \
+psp_font.o \
+psp_irkeyb.o \
+psp_kbd.o \
+psp_menu.o \
+psp_menu_help.o \
+psp_menu_kbd.o \
+psp_menu_set.o \
+psp_run.o \
+psp_sdl.o \
+psp_gu.o \
+psp_dragon.o \
+global.o \
+core/cart.o \
+core/crc16.o \
+core/deltados.o \
+core/dragondos.o \
+core/events.o \
+core/filereq_cli.o \
+core/fs_unix.o \
+core/hexs19.o \
+core/joystick.o \
+core/keyboard.o \
+core/m6809.o \
+core/machine.o \
+core/main_unix.o \
+core/module.o \
+core/pia.o \
+core/rsdos.o \
+core/sam.o \
+core/snapshot.o \
+core/sound_null.o \
+core/sound_sdl.o \
+core/tape.o \
+core/ui_sdl.o \
+core/vdg_bitmaps.o \
+core/vdg.o \
+core/vdisk.o \
+core/vdrive.o \
+core/video_sdl.o \
+core/wd279x.o \
+core/xroar.o \
+core/keyboard_psp.o \
+pspsdk_linux.o
+
+DEFAULT_CFLAGS = $(shell $(SDL_CONFIG) --cflags) \
+                 -I/usr/include  -I. -Iinclude/ -I./pspsdk_linux
+
+PSPDRAGON_VERSION=1.0.2
+
+MORE_CFLAGS = $(DEFAULT_CFLAGS) -O2 -Wall -DLINUX_MODE -DPSP \
+-Iinclude/ \
+-DPSPDRAGON_VERSION=\"$(PSPDRAGON_VERSION)\" \
+-DNO_STDIO_REDIRECT
+
+CFLAGS = $(DEFAULT_CFLAGS) $(MORE_CFLAGS)
+CXXFLAGS = $(DEFAULT_CFLAGS) $(MORE_CFLAGS) -fno-exceptions -fno-rtti
+
+LIBS += -L/usr/lib -L/usr/X11R6/lib -lSDL_image -lSDL -lXext -lX11 -lpng -ljpeg -lz -lm -lpthread
+all : $(TARGET)
+
+$(TARGET): $(OBJS)
+	gcc $(CFLAGS) $(OBJS) $(LIBS) -o $(TARGET)
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+
+ctags: 
+	ctags *[ch] core/*[ch] sdl/*[ch]

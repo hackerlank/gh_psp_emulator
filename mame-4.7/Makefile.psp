@@ -1,0 +1,99 @@
+#
+# Sony Playstation Portable makefile for GP2X MAME4All v4.7 project
+# by TTYman
+# requires pspdev toolchain with pspsdk and sdl support,
+# mingw compatible, look at http://ttyman.free.fr
+#
+NAME   = MAME4All
+O      = o
+RM     = rm -f
+CC     = psp-gcc
+CXX    = psp-g++
+AS     = psp-c++
+STRIP  = psp-fixup-imports
+PSPPACK= psp-packer
+
+MAME4ALL_AGED=1
+MAME4ALL_CLASSIC=1
+MAME4ALL_GOLD=1
+
+# version info
+M4A_MAJOR=4
+M4A_MINOR=7
+
+PSP=1
+# comment out PSP_RES=1 to disable native PSP orizzontal resolution of 480 pixels
+PSP_RES=1
+# comment out TTY_BMP=1 to disable special edition theme graphics, based on Tim's pics, adapted by TTYman
+TTY_BMP=1
+PROG   = $(NAME).elf
+
+# modify to your correct installation path of psp dev (compilers, libs, includes etc.)
+PSPDEV = /c/mingw/psp
+
+# modify to your correct installation path of sdk psp (native support of psp hardware)
+PSPSDK = $(PSPDEV)/sdk
+PSPINC = -I$(PSPDEV)/include -I$(PSPDEV)/include/SDL -I$(PSPSDK)/include
+PSPBIN = $(PSPSDK)/../bin
+SDL_CONFIG = $(PSPBIN)/sdl-config
+
+ifdef PSP_RES
+ifdef TTY_BMP
+DEFAULT_CFLAGS = -mtune=allegrex -DPSP -DPSP_RES -DTTY_BMP -DM68000_CORE $(PSPINC)
+else
+DEFAULT_CFLAGS = -mtune=allegrex -DPSP -DPSP_RES -DM68000_CORE $(PSPINC)
+endif
+else
+DEFAULT_CFLAGS = -mtune=allegrex -DPSP -DM68000_CORE $(PSPINC)
+endif
+MORE_CFLAGS += -O3 -msoft-float -ffast-math -fstrict-aliasing -fexpensive-optimizations 
+MORE_CFLAGS += -fweb -frename-registers -fomit-frame-pointer 
+MORE_CFLAGS += -falign-functions=32 -falign-loops -falign-labels -falign-jumps 
+MORE_CFLAGS += -finline -finline-functions -fno-builtin -fno-common 
+MORE_CFLAGS += -Isrc -Isrc/sdl 
+MORE_CFLAGS += -DLSB_FIRST -DSIGNED_SAMPLES -DACORN -DINLINE="static __inline" 
+MORE_CFLAGS += -Isrc/z80 -Isrc/m6502 -Isrc/m6809 -Isrc/i86 -Isrc/tms34010 -Isrc/tms9900 
+MORE_CFLAGS += -DUSE_OLD_LIST_INIT -DDATA_PREFIX=\"data/\" -DROM_PREFIX=\"example\"
+#MORE_CFLAGS += -DMMUHACK
+#LDFLAGS      = -static
+LIBS = -L$(PSPDEV)/lib -L$(PSPSDK)/lib -lstdc++ -lSDL_mixer -lSDL -lm -lpspgu -lpspaudio -lpsppower -lpsphprm
+
+
+include config.mk
+
+MORE_CFLAGS += -DMITSHM $(DEFS) -DUNZIP_SUPPORT -DZLIB -DHAVE_MKSTEMP -DHAVE_STRINGS_H -DACCEPT_SIZE_T=\"int\"
+
+CFLAGS  = $(DEFAULT_CFLAGS) $(MORE_CFLAGS)
+CPPFLAGS  = $(DEFAULT_CFLAGS) $(MORE_CFLAGS)
+
+all: $(PROG)
+
+include objs.mk
+
+TARGET = $(NAME)
+EXTRA_TARGETS = EBOOT.PBP
+ifdef PSP_RES
+PSP_EBOOT_TITLE = PSP $(TARGET) v$(M4A_MAJOR).$(M4A_MINOR) HiRes by TTYman
+ifdef TTY_BMP
+PSP_EBOOT_PIC1 = $(TARGET)-eboot-pic1.png
+PSP_EBOOT_ICON = $(TARGET)-eboot-icon-$(M4A_MAJOR)$(M4A_MINOR).png
+PSP_EBOOT_ICON1 = $(TARGET)-eboot-icon-$(M4A_MAJOR)$(M4A_MINOR).png
+endif
+else
+PSP_EBOOT_TITLE = PSP $(TARGET) v$(M4A_MAJOR).$(M4A_MINOR) by TTYman
+endif
+PSP_EBOOT_SFO = $(TARGET)-eboot.sfo
+
+include $(PSPSDK)/lib/build.mak
+CFLAGS  = $(DEFAULT_CFLAGS)
+
+#in the following redefine of EBOOT.PBP of pspsdk build.mk section
+#will be used PSPPACK optional compressor, defined before, so to use it and reduce final size you must 
+#install psp-packer executable, add it in your path and uncomment following lines
+$(PSP_EBOOT): $(TARGET).elf $(PSP_EBOOT_SFO)
+	$(STRIP) $(TARGET).elf -o $(TARGET)_prepacker.elf
+	$(PSPPACK) $(TARGET)_prepacker.elf -o $(TARGET)_strip.elf
+	$(PACK_PBP) EBOOT.PBP $(PSP_EBOOT_SFO) $(PSP_EBOOT_ICON)  \
+		$(PSP_EBOOT_ICON1) $(PSP_EBOOT_UNKPNG) $(PSP_EBOOT_PIC1)  \
+		$(PSP_EBOOT_SND0)  $(TARGET)_strip.elf $(PSP_EBOOT_PSAR)
+	-rm -f $(TARGET)_strip.elf $(TARGET)_prepacker.elf

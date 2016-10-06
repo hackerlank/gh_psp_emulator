@@ -1,0 +1,297 @@
+1.5.1 :
+
+- This version of PSPCap32 supports IRDA-Joystick box designed 
+  by my good friend Buzz ( see http://buzz.computer.free.fr ).
+  Schematic and PIC source code is provided in contrib folder.
+- Add "IRDA joystick" device support for both
+  DB9 Joystick and Atari Paddle
+- Add menu for IRDA joystick settings and keys mapping
+- Add option to choose between IRDA devices (keyboard or joystick)
+
+
+1.4.4 :
+
+- Improve global emulation speed !
+- Cheat support !
+- Text editor to modify the global cheat.txt file
+- Memory monitoring engine to find your own cheat code !
+- Text editor to write your own comments on games 
+- Display first comment line while browsing game files
+- Finally fix issue with "Home -> Exit" !
+- Add option to disable auto fire in settings menu
+- Improve file requester with virtual keyboard to choose 
+  sequentially rom files beginning with a given letter
+- Zip rom files are now decompressed in memory (much faster !)
+
+1.4.3
+
+- Emulation speed (small improvements)
+- Improve file requester with virtual keyboard to choose 
+  sequentially rom files beginning with a given letter
+- Add documentation for settings in help menu
+
+1.4.2
+
+- bug fix in CRTC emulation (thanks to Carl Murray)
+
+1.4.1
+
+- bug fix in CRTC emulation 
+ (games such as Prehistorik II just couldn't be launched)
+- Two drives (A & B) are now supported, but only drive A
+  can be used to automatically start a game. 
+  It might be useful with symbOS to put the OS disk on 
+  drive 'A:' and application disk on 'B:'
+
+1.4.0
+
+- Major speed improvements, frame rate reached 55 fps at 222Mhz 
+  on startup and 67 fps at 266Mhz
+- Add gzipped disk file support, reduce disk file size from 190k to 20k !
+  (you may gzip original dsk file using www.7-zip.org)
+  Of course, gzipped disk files are also browsable using disk explorer 
+  inside the emulator, and when possible, they can be run automatically.
+- Add eboot's music
+- A thumbnail image is now displayed in the file requester 
+  while selecting any file with the same name of a previously 
+  saved game (snapshot, disk, keyboard, settings).
+  It might be very helpful to recognize that game later if you 
+  have thousand different games in your disk and snapshot folders !
+- The virtual keyboard is now usable in the file requester menu to
+  choose the first letter of the game you search !
+- In the emulator menu you can go directly to keyboard and settings
+  menu using the L-Trigger key.
+- Fix IR keyboard issue with fw >= 3.80 for FAT PSP
+- Fix random black screen issue
+- Source code can now be compiled to build a linux version
+
+
+1.3.4
+
+- Many optimizations to speed up the emulation :
+  . Z-80 part as been rewritten using several hints such 
+    as explicit jump tables for instructions decode
+  . CRT and sound part has been optimized
+  (Frame rate is now 49 Fps at 222Mhz on startup)
+- Auto-fire mode, press RTrigger+X to switch it on/off
+  (useful for games such as defend or die !)
+- Add new hotkeys to setup auto fire speed
+- Bug fix in the low battery watchdog
+- RTrigger/LTrigger keys can be used in the keyboard
+  settings menu to navigate between Normal, LTrigger 
+  and  RTrigger compose mapping.
+- New "Command" feature in the emulator menu:
+  . You have now to choose the command you want to run using arrows.
+- Default Hotkeys can now be set in the keyboard mapping menu
+  (useful to add hotkeys on existing/previous keyboard files)
+- Remove dead code (such as printer, breakpoint, trace support etc ...)
+
+1.3.3
+
+- bug fix in green/monochrome default settings 
+- improve speed (+3 fps at 222Mhz)
+- add new hotkeys :
+  . settings such as fps, delta_y or render mode 
+    can now be directly modified inside the emulator 
+    (no need to enter in the settings menu)
+  . quick save / quick load current state 
+    (no need to enter in the main menu)
+
+1.3.2
+
+- Display in green (monochrome) 
+- Option to scroll up or down the screen 
+  (when the screen is not properly centered)
+- Analog pad can now be used in the file requester
+  to move faster through the disk/snapshot lists
+- Check CPM disk automatically 
+  (and run |CPM instead of RUN")
+- Bug fix in the disk explorer menu 
+  (when the number of files on disk was too high)
+- IR keyboard works now also in the keyboard settings
+  menu.
+- Bug fix in the render function, sometimes the screen
+  became dark (it should not happen anymore).
+
+1.3.1
+
+- Major Speed improvements, > 50fps at 266Mhz even using GU render.
+- Games on disk are now automatically loaded on startup !
+- Menu to explore the disk content and possibly load files with 
+  Basic RUN" command
+- Sound improvements
+- Bug fix in the keyboard settings menu 
+  (when the virual keyboard is displayed, then you can still use the
+  d-pad to select menu items)
+- Add several news options such as one to display (or not) the border 
+- Code cleaning
+
+
+1.2.0
+
+- Major Speed improvements, it's fullspeed now !
+- Import CRT emulation part of older version of Caprice32
+  (less accurate, but much faster)
+- Add two new render modes : Fast and Ultra.
+- Sound is now played in 16 bits and stereo !
+- IR keyboard support !
+- Display and save thumbnail images for each save state
+- New speed limiter function
+- Add option to display fps rate
+- Option to prevent the blue led to be displayed when 
+  L or R are pressed
+- Now compatible with custom firmwares 3.x and PSP-slim
+- Add a simple intro splash screen  
+- Support iso8859-1 fonts in print text functions 
+  (might be useful to translate menus in german, french ...)
+- Bug fix and code cleaning
+
+
+1.1.6
+
+- Add option to change the ram size up to 576k
+  and PSPCap32 can now run Symb-OS !
+
+  (Thanks to Goebish for his help)
+
+1.1.5
+
+- Save state files are now saved using gzip compression
+  (with SNZ as file extention). It's much faster to save 
+  or load states now.
+  You can use gzip or 7-zip to convert old SNA to SNZ.
+  SNA file format is still supported for loading, so you 
+  convert your previous saved files inside the emulator.
+- A new graphical engine with new smoother render modes !
+  It uses now the PSP GU for rendering, it does not run faster, 
+  but it's a lot smoother !
+  Old "soft" render modes are still available, because there are
+  a bit faster.
+- Save state dates are displayed in the emulator window
+  (it's now easier to identify and to load the right save state slot)
+- Sound is now played at 44Khz (instead of 48Khz)
+- Bug fix (load default keyboard mapping on startup)
+- Bug fix in Rom file requester 
+- Bug fix in keyboard handler
+
+1.1.4
+
+- Bug fix in PNG screenshots 
+- Bug fix in sound tick menu
+- Add fit height zoom mode
+- Speed limiter is set to 50fps (instead of 60fps)
+
+1.1.3
+
+- Emulator menus reorganisation (new menu for settings)
+- New feature to save and load a distinct setting file for each games
+- Delete files option (in the file selector)
+- Add speed limiter option
+- Screenshots are now saved in PNG format instead of BMP 
+- Multiple keyboard mappings feature developped by Pou-chan :
+  You can now toggle between 3 different keyboard mapping using
+  LTrigger and RTrigger keys
+- Add help menu
+
+
+1.1.2
+
+- Add beautiful icons and background designed by Shadow !
+- Modify the UI to be able to use custom background images (transparency)
+- Sleep mode is now working (but only when you're in the emulator window)
+- Bug fix in danzeff keyboard (wrong key mapping)
+
+1.1.1
+
+- Improve the sound, it's now much more better !
+- The percent of battery left is now displayed in the emulator window
+- Add a watchdog to automatreturn to the emulator menu
+  when  the battery is very low (< 5%)
+- Add option to modify the "sound tick average" value 
+  (usefull to avoid sound distorsion on several games)
+- Enter directly in the emulator menu on startup (instead of the CPC screen)
+- Bug fix in smooth image algorithm (resulting in wrong color display) 
+- Bug fix and code cleaning
+- New keyboard files from Loic Daneels (more than 470 games !)
+
+1.1.0
+
+- New keyboard files from Loic Daneels (more than 380 games !)
+- Add keyboard change skin option 
+  (you can add your own virtual keyboard images in the graphics directory).
+- Modify the file requester to memorize separately the last 
+  locations/directory of disk image, snapshot, and keyboard 
+  (much more convenient !)
+- Add LED for disk access
+- Bug fix, SHIFT and CONTROL key are now working.
+
+1.0.9
+
+- New keyboard files from Loic Daneels (more than 270 games !)
+- In the key mapping editor, PSP keys can now be left unassigned
+- Add Analog pad mapping (in .kbd file format and in the key mapping editor)
+- Modify the exit key sequence, it's now Start+L+R to avoid conflict with IR-shell.
+
+1.0.8
+
+- New Speed optimization 
+  (Up to 30% faster.)
+- Add Screenshot save feature
+  (Save up to 10 screenshots in the pspcap32/scr directory)
+- Add Configuration file load/save option
+  (if a file pspcap32.cfg is present, it is then loaded on startup)
+- Add Background image
+- New keyboard pack files (from Loic Daneels)
+
+1.0.7
+
+- Keyboard mapping Editor 
+  (using the virtual keyboard)
+- Bug fix in z80 emulator, visible in batman game
+  (back to original caprice32 code)
+- Bug fix in virtual keyboard
+  (several keys such as Copy or Capslock weren't taken into account)
+- The name of the current game is now displayed in the emulator menu
+  (this name is used as filename for all saved data such
+   as keyboard file or quick save snapshots).
+
+1.0.6
+
+- Add Fullscreen (fit width), zoom x1.25 and x1.5 !
+- Add |CPM command support in the run.txt file
+- Option to swap the CPC joystick keys between 
+  PSP analog stick and d-pad
+
+1.0.5
+
+- Add all missing CPC keys in the virtual keyboard
+- Add a file (run.txt) to specify association between 
+  the disk name and the name of the program to run 
+  (file yyy.dsk -> RUN"xxx)
+
+1.0.4
+
+- New Speed optimization (frame display)
+- Bug fix in PSP Clock Frequency option
+- Add Load/Save/Del states menu
+- Shortcut to run the "Cat" command
+- Shortcut to RUN" after disk loading
+- Automatic keyboard file loading (same filename 
+  as disk or snapshot file)
+
+1.0.3
+
+- Speed optimization (Z80 emulator, and frame display)
+- Add a "frame skip" option in the emulator menu
+
+1.0.2
+
+- Emulator options menu to change parameter such as sound, clock etc ...
+- Zip archive support for both disk files (.dsk) and snapshot files (.sna).
+- User Keyboard mapping file to specify dedicated mapping between CPC
+  and PSP keys (usefull for games that use particular keys and/or don't 
+  support joystick).
+
+1.0.1
+
+- Intial release

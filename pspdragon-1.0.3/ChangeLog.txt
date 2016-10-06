@@ -1,0 +1,18 @@
+1.0.3
+
+- Fix sound issue using the patch sent by original X-roar's author, 
+  aka Ciaran himself (big thanks to him !!)
+  The sound on game such as "Demon Attack" is now pretty good.
+
+1.0.2
+
+- Speed improvements
+- Add vsync option
+- Add artifact mode
+- Auto-fire mode, press RTrigger+X to switch it on/off
+- New command menu to run disk program
+- Bug fix in the low battery watchdog
+
+1.0.1
+
+- Intial release

@@ -1,0 +1,275 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Polish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
+#ifdef _WIN32
+LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG3 DIALOGEX 0, 0, 178, 170
+STYLE DS_SYSMODAL | DS_MODALFRAME | DS_3DLOOK | DS_CENTERMOUSE | WS_POPUP | 
+    WS_CAPTION
+CAPTION "About CYGNE"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Continue",IDOK,64,154,50,14
+    LTEXT           "Cygne 2.1a Win",IDC_STATIC,97,14,52,8
+    CONTROL         108,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,6,
+                    60,55,WS_EX_DLGMODALFRAME
+    GROUPBOX        "",IDC_STATIC,79,6,86,19
+    LTEXT           "WS/WSC emulator by DOX",IDC_STATIC,76,30,88,8
+    LTEXT           "NEC cpu core by",IDC_STATIC,11,67,55,8
+    LTEXT           "Bryan McPhail, Oliver Bergmann,",IDC_STATIC,68,67,104,8
+    GROUPBOX        "",IDC_STATIC,5,95,164,55
+    LTEXT           "Judge, BillyJR, Jerrychan, Nesroms ,Yuu,MrLee",
+                    IDC_STATIC,9,117,150,8
+    LTEXT           "Bot79, oTek, Project25,Krizallid,Danzig/NPM",IDC_STATIC,
+                    12,126,143,8
+    LTEXT           "dox@space.pl",IDC_STATIC,95,39,46,8
+    LTEXT           "zlib by Jean-loup Gailly  and  Mark Adler",IDC_STATIC,
+                    25,84,126,8
+    LTEXT           " Fabrice Frances and David Hedley",IDC_STATIC,29,76,112,
+                    8
+    LTEXT           "Special thanks to :",IDC_STATIC,15,105,60,8
+    LTEXT           "and all betatesters",IDC_STATIC,57,138,58,8
+END
+
+IDD_DIALOG4 DIALOG DISCARDABLE  0, 0, 406, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Configure controls"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,44,164,50,14
+    COMBOBOX        IDC_COMBO1,57,81,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "X1",IDC_STATIC,43,84,10,8
+    LTEXT           "X3",IDC_STATIC,43,115,10,8
+    LTEXT           "X4",IDC_STATIC,7,99,10,8
+    LTEXT           "X2",IDC_STATIC,83,100,10,8
+    LTEXT           "Y1",IDC_STATIC,45,12,10,8
+    LTEXT           "Y3",IDC_STATIC,45,43,10,8
+    LTEXT           "Y4",IDC_STATIC,7,29,10,8
+    LTEXT           "Y2",IDC_STATIC,83,28,10,8
+    LTEXT           "Start",IDC_STATIC,168,134,16,8
+    LTEXT           "A",IDC_STATIC,337,135,8,8
+    LTEXT           "B",IDC_STATIC,269,135,8,8
+    PUSHBUTTON      "Default",IDC_BUTTON1,116,164,50,14
+    CONTROL         "Rotate controls with screen",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,194,164,102,10
+    LTEXT           "Rotate Screen",IDC_STATIC,301,165,47,8
+    COMBOBOX        IDC_COMBO2,19,97,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO3,95,97,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO4,57,113,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO5,57,11,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO6,19,27,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO7,95,27,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO8,57,42,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO9,186,133,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO10,347,132,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO11,281,132,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO12,351,163,48,127,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         111,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE | 
+                    SS_SUNKEN | WS_BORDER,167,9,195,111
+    LTEXT           "Pause",IDC_STATIC,27,142,21,8
+    EDITTEXT        IDC_EDIT1,59,140,40,14,ES_CENTER | ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "",IDC_STATIC,5,3,151,128
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 171
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_DIALOG4, DIALOG
+    BEGIN
+        RIGHTMARGIN, 405
+        BOTTOMMARGIN, 182
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+menu1 MENU DISCARDABLE 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "Load ROM",                    ID_FILE_OPENROM
+        MENUITEM SEPARATOR
+        MENUITEM "Load State",                  ID_FILE_LOADSTATE
+        MENUITEM "Save State",                  ID_FILE_SAVESTATE
+        MENUITEM "Reset",                       ID_FILE_RESET
+        MENUITEM SEPARATOR
+        MENUITEM "Exit",                        ID_FILE_EXIT
+    END
+    POPUP "Options"
+    BEGIN
+        MENUITEM "Controls",                    ID_OPTIONS_CONTROLS
+        POPUP "Video"
+        BEGIN
+            POPUP "Size"
+            BEGIN
+                MENUITEM "x1",                          ID_OPTIONS_VIDEO_SIZE_X1
+
+                MENUITEM "x2",                          ID_OPTIONS_VIDEO_SIZE_X2
+
+                MENUITEM "x3",                          ID_OPTIONS_VIDEO_SIZE_X3
+
+                MENUITEM "x4",                          ID_OPTIONS_VIDEO_SIZE_X4
+
+            END
+            POPUP "Colorset"
+            BEGIN
+                MENUITEM "Grey",                        ID_OPTIONS_VIDEO_COLORSET_GREY
+
+                MENUITEM "Red",                         ID_OPTIONS_VIDEO_COLORSET_RED
+
+                MENUITEM "Blue",                        ID_OPTIONS_VIDEO_COLORSET_BLUE
+
+                MENUITEM "Green",                       ID_OPTIONS_VIDEO_COLORSET_GREEN
+
+            END
+            POPUP "Frameskip"
+            BEGIN
+                MENUITEM "0",                           ID_OPTIONS_VIDEO_FRAMESKIP_0
+
+                MENUITEM "1",                           ID_OPTIONS_VIDEO_FRAMESKIP_1
+
+                MENUITEM "2",                           ID_OPTIONS_VIDEO_FRAMESKIP_2
+
+                MENUITEM "3",                           ID_OPTIONS_VIDEO_FRAMESKIP_3
+
+                MENUITEM "4",                           ID_OPTIONS_VIDEO_FRAMESKIP_4
+
+                MENUITEM "5",                           ID_OPTIONS_VIDEO_FRAMESKIP_5
+
+            END
+            POPUP "Orientation"
+            BEGIN
+                MENUITEM "Horizontal",                  ID_OPTIONS_VIDEO_ORIENTATION_HORIZONTAL
+
+                MENUITEM "Vertical",                    ID_OPTIONS_VIDEO_ORIENTATION_VERTICAL
+
+            END
+            MENUITEM "Synchronize",                 ID_OPTIONS_VIDEO_SYNCHRONIZE
+
+            MENUITEM SEPARATOR
+            MENUITEM "Save Screen",                 ID_OPTIONS_VIDEO_SAVESCREEN
+
+        END
+        MENUITEM "WSC Emulation",               ID_OPTIONS_WSCEMULATION
+        MENUITEM SEPARATOR
+        MENUITEM "Debugger",                    ID_OPTIONS_DEBUGGER
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "About",                       ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "bitmap1.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "about.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "bitmap3.bmp"
+#endif    // Polish resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
