@@ -32,6 +32,7 @@
 #include "Sound.hxx"
 #include "GuiUtils.hxx"
 
+typedef unsigned int		uintptr_t;
 #define HBLANK 68
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -306,7 +307,7 @@ bool TIA::save(Serializer& out)
 {
   string device = name();
 
-  try
+  __try
   {
     out.putString(device);
 
@@ -390,7 +391,7 @@ bool TIA::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << device << endl;
     return false;
@@ -404,7 +405,7 @@ bool TIA::load(Deserializer& in)
 {
   string device = name();
 
-  try
+  __try
   {
     if(in.getString() != device)
       return false;
@@ -492,7 +493,7 @@ bool TIA::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << device << endl;
     return false;

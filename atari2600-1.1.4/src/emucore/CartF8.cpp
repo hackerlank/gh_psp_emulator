@@ -172,20 +172,20 @@ bool CartridgeF8::save(Serializer& out)
 {
   string cart = name();
 
-  try
+  __try
   {
     out.putString(cart);
 
     out.putInt(myCurrentBank);
   }
 # if 0 //LUDO:
-  catch(char *msg)
+  */catch(char *msg)
   {
     cerr << msg << endl;
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << cart << endl;
     return false;
@@ -199,7 +199,7 @@ bool CartridgeF8::load(Deserializer& in)
 {
   string cart = name();
 
-  try
+  __try
   {
     if(in.getString() != cart)
       return false;
@@ -213,7 +213,7 @@ bool CartridgeF8::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << cart << endl;
     return false;

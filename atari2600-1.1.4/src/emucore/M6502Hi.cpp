@@ -247,7 +247,7 @@ bool M6502High::save(Serializer& out)
 {
   string CPU = name();
 
-  try
+  __try
   {
     out.putString(CPU);
 
@@ -281,7 +281,7 @@ bool M6502High::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << CPU << endl;
     return false;
@@ -295,7 +295,7 @@ bool M6502High::load(Deserializer& in)
 {
   string CPU = name();
 
-  try
+  __try
   {
     if(in.getString() != CPU)
       return false;
@@ -329,7 +329,7 @@ bool M6502High::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << CPU << endl;
     return false;

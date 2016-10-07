@@ -186,7 +186,7 @@ bool Cartridge3F::save(Serializer& out)
 {
   string cart = name();
 
-  try
+  __try
   {
     out.putString(cart);
     out.putInt(myCurrentBank);
@@ -198,7 +198,7 @@ bool Cartridge3F::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << cart << endl;
     return false;
@@ -212,7 +212,7 @@ bool Cartridge3F::load(Deserializer& in)
 {
   string cart = name();
 
-  try
+  __try
   {
     if(in.getString() != cart)
       return false;
@@ -226,7 +226,7 @@ bool Cartridge3F::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << cart << endl;
     return false;

@@ -232,7 +232,7 @@ bool CartridgeMC::save(Serializer& out)
   uInt32 i;
   string cart = name();
 
-  try
+  __try
   {
     out.putString(cart);
 
@@ -253,7 +253,7 @@ bool CartridgeMC::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << cart << endl;
     return false;
@@ -268,7 +268,7 @@ bool CartridgeMC::load(Deserializer& in)
   uInt32 i;
   string cart = name();
 
-  try
+  __try
   {
     uInt32 limit;
 
@@ -292,7 +292,7 @@ bool CartridgeMC::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << cart << endl;
     return false;

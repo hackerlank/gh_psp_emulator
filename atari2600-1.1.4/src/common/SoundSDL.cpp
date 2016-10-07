@@ -427,7 +427,7 @@ bool SoundSDL::load(Deserializer& in)
 {
   string device = "TIASound";
 
-  try
+  __try
   {
     if(in.getString() != device)
       return false;
@@ -468,7 +468,7 @@ bool SoundSDL::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << device << endl;
     return false;
@@ -482,7 +482,7 @@ bool SoundSDL::save(Serializer& out)
 {
   string device = "TIASound";
 
-  try
+  __try
   {
     out.putString(device);
 
@@ -515,7 +515,7 @@ bool SoundSDL::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << device << endl;
     return false;

@@ -214,7 +214,7 @@ bool CartridgeFASC::save(Serializer& out)
 {
   string cart = name();
 
-  try
+  __try
   {
     out.putString(cart);
 
@@ -232,7 +232,7 @@ bool CartridgeFASC::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << cart << endl;
     return false;
@@ -246,7 +246,7 @@ bool CartridgeFASC::load(Deserializer& in)
 {
   string cart = name();
 
-  try
+  __try
   {
     if(in.getString() != cart)
       return false;
@@ -264,7 +264,7 @@ bool CartridgeFASC::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << cart << endl;
     return false;

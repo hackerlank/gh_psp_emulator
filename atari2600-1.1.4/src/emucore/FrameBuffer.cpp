@@ -17,6 +17,7 @@
 //============================================================================
 
 #include <sstream>
+#include <time.h>
 
 #include "bspf.hxx"
 #include "Console.hxx"
@@ -663,7 +664,7 @@ uInt32 FrameBuffer::maxWindowSizeForScreen()
   }
 
   if(found)
-    return multiplier";
+    return multiplier;
   else
 # endif
   return 1;

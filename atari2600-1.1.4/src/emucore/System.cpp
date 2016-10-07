@@ -125,7 +125,7 @@ void System::attach(TIA* tia)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 bool System::save(Serializer& out)
 {
-  try
+  __try
   {
     out.putString("System");
     out.putInt(myCycles);
@@ -137,7 +137,7 @@ bool System::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for \'System\'" << endl;
     return false;
@@ -149,7 +149,7 @@ bool System::save(Serializer& out)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 bool System::load(Deserializer& in)
 {
-  try
+  __try
   {
     if(in.getString() != "System")
       return false;
@@ -163,7 +163,7 @@ bool System::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for \'System\'" << endl;
     return false;
@@ -213,7 +213,7 @@ bool System::saveState(const string& md5sum, Serializer& out)
   if(!out.isOpen())
     return false;
 
-  try
+  __try
   {
     // Prepend the state file with the md5sum of this cartridge
     // This is the first defensive check for an invalid state file
@@ -239,7 +239,7 @@ bool System::saveState(const string& md5sum, Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for \'System\'" << endl;
     return false;
@@ -255,7 +255,7 @@ bool System::loadState(const string& md5sum, Deserializer& in)
   if(!in.isOpen())
     return false;
 
-  try
+  __try
   {
     // Look at the beginning of the state file.  It should contain the md5sum
     // of the current cartridge.  If it doesn't, this state file is invalid.
@@ -282,7 +282,7 @@ bool System::loadState(const string& md5sum, Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for \'System\'" << endl;
     return false;

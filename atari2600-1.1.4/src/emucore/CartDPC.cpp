@@ -480,7 +480,7 @@ bool CartridgeDPC::save(Serializer& out)
 {
   string cart = name();
 
-  try
+  __try
   {
     uInt32 i;
 
@@ -527,7 +527,7 @@ bool CartridgeDPC::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << cart << endl;
     return false;
@@ -541,7 +541,7 @@ bool CartridgeDPC::load(Deserializer& in)
 {
   string cart = name();
 
-  try
+  __try
   {
     if(in.getString() != cart)
       return false;
@@ -590,7 +590,7 @@ bool CartridgeDPC::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << cart << endl;
     return false;

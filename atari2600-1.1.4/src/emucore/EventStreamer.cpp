@@ -80,7 +80,7 @@ bool EventStreamer::stopRecording()
   // Append the event history to the eventstream
   int size = myEventHistory.size();
 
-  try
+  __try
   {
     myStreamWriter.putString("EventStream");
     myStreamWriter.putInt(size);
@@ -94,7 +94,7 @@ bool EventStreamer::stopRecording()
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Error saving eventstream" << endl;
     return false;
@@ -117,7 +117,7 @@ cerr << "EventStreamer::loadRecording()\n";
   if(!myOSystem->console().system().loadState(md5, myStreamReader))
     return false;
 
-  try
+  __try
   {
     if(myStreamReader.getString() != "EventStream")
       return false;
@@ -135,7 +135,7 @@ cerr << "EventStreamer::loadRecording()\n";
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Error loading eventstream" << endl;
     return false;

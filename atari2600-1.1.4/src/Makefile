@@ -129,6 +129,7 @@ PSP_FW_VERSION=401
 PSP2600_VERSION=1.1.4
 
 MORE_CFLAGS = -G0 -Iemucore -Icommon -Ipsp \
+ -fexceptions \
  -funroll-loops -ffast-math -fomit-frame-pointer \
  -fno-strength-reduce -finline-functions \
  -fsingle-precision-constant \
@@ -146,7 +147,7 @@ OPTIM_CFLAGS= -O2
 CFLAGS = $(DEFAULT_CFLAGS) $(MORE_CFLAGS)
 CXXFLAGS = $(DEFAULT_CFLAGS) $(MORE_CFLAGS) -fno-exceptions -fno-rtti
 
-LIBS += -lstdc++ -lpspirkeyb -lpsppower -lSDL_image -lSDL -lpng -ljpeg -lpspaudio -lpspgu -lpsphprm -lz -lm
+LIBS += -lstdc++ -lpspirkeyb -lpsppower -lSDL_image -lSDL -lpng -ljpeg -lpspaudio -lpspgu -lpsphprm -lz -lm -lg -lGLU -lGL -lglut -lpspvfpu -lpsprtc
 
 BUILD_PRX=1
 

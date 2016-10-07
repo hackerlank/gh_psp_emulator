@@ -15,7 +15,8 @@
 //
 // $Id: Deserializer.cxx,v 1.10 2005/12/29 21:16:26 stephena Exp $
 //============================================================================
-
+#include <stdlib.h>
+#include <stdio.h>
 #include "Deserializer.hxx"
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

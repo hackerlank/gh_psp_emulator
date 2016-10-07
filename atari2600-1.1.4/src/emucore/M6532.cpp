@@ -299,7 +299,7 @@ bool M6532::save(Serializer& out)
 {
   string device = name();
 
-  try
+  __try
   {
     out.putString(device);
 
@@ -323,7 +323,7 @@ bool M6532::save(Serializer& out)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in save state for " << device << endl;
     return false;
@@ -337,7 +337,7 @@ bool M6532::load(Deserializer& in)
 {
   string device = name();
 
-  try
+  __try
   {
     if(in.getString() != device)
       return false;
@@ -363,7 +363,7 @@ bool M6532::load(Deserializer& in)
     return false;
   }
 # endif
-  catch(...)
+  __catch(...)
   {
     cerr << "Unknown error in load state for " << device << endl;
     return false;
